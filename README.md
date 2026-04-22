@@ -12,7 +12,7 @@ Kind of a port from here: https://github.com/adyanth/openwrt-tailscale-enabler j
 
 # Installing and configuring tailscale
 1. `cd /sd`
-2. `wget <https://pkgs.tailscale.com/stable/tailscale_1.96.4_mips.tgz>`
+2. `wget https://pkgs.tailscale.com/stable/tailscale_1.96.4_mips.tgz`
 3. `gunzip tailscale_1.96.4_mips.tgz && tar -xvf tailscale_1.96.4_mips.tar`
 4. Before we do anything else let's update the packages and download some dependencies
    1. `opkg update`
