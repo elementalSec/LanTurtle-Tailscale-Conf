@@ -4,7 +4,7 @@ Configure a Lan Turtle from Hak5 with SD card to work with Tailscale (https://ha
 Kind of a port from here: https://github.com/adyanth/openwrt-tailscale-enabler just some parts I couldn't get working so I did a bit of a mix-n-match.
 
 # Pre Tailscale install/configuration
-1. Follow these steps to setting up the Lan Turtle https://docs.hak5.org/lan-turtle/lan-turtle-by-hak5/
+1. Follow these steps for setting up the Lan Turtle https://docs.hak5.org/lan-turtle/lan-turtle-by-hak5/
 2. Make sure you're running the latest firmware which is 6.2 from 2019 -> https://downloads.hak5.org/turtle/mk1
 3. Make sure you have the recovery firmware on hand in case you sort of brick this thing like I did _multiple times_ (https://downloads.hak5.org/api/devices/lanturtle/firmwares/recovery)
 4. Finally, the Lan Turtle should be connected to the internet for this (I think that goes without saying)
