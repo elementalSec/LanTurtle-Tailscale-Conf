@@ -21,48 +21,9 @@ Kind of a port from here: https://github.com/adyanth/openwrt-tailscale-enabler j
 6. `ln -s /sd/tailscale_1.96.4_mips/tailscaled /usr/bin/tailscaled` 
 7. `tailscaled --state=/sd/tailscaled.state &` 
 8. `tailscale up` it will provide a login link like so `https://login.tailscale.com/a/dasjdhaksda398` authenticate to your tailnet, approve the device if you have that setting enabled, and remove key expiry or we will lose access to the device after x days
-9. create this file in /etc/init.d/tailscale (Allows tailscale to start on boot and all that good stuff we need)
-
-```
-#!/bin/sh /etc/rc.common
-
-# Copyright 2020 Google LLC.
-# SPDX-License-Identifier: Apache-2.0
-
-USE_PROCD=1
-START=99
-STOP=1
-
-start_service() {
-  procd_open_instance
-  procd_set_param command /usr/bin/tailscaled
-
-  # Set the port to listen on for incoming VPN packets.
-  # Remote nodes will automatically be informed about the new port number,
-  # but you might want to configure this in order to set external firewall
-  # settings.
-  procd_append_param command --port 41641
-
-  # OpenWRT /var is a symlink to /tmp, so write persistent state elsewhere.
-  procd_append_param command --state /etc/config/tailscaled.state
-  
-  # Persist files for TLS cert & Taildrop files
-  procd_append_param command --statedir /etc/tailscale/
-
-  procd_set_param respawn
-  procd_set_param stdout 1
-  procd_set_param stderr 1
-
-  procd_close_instance
-}
-
-stop_service() {
-  /usr/bin/tailscaled --cleanup
-}
-```
-
- 8. `chmod +x /etc/init.d/tailscale`
- 9. `/etc/init.d/tailscale start`
-10. `/etc/init.d/tailscale enable`
-11. `/etc/init.d/tailscale enable`
-12. `ls /etc/rc.d/S*tailscale*` -> you should see something like `/etc/rc.d/S99tailscale`
+9. create this [file](etc/init.d/tailscale) in /etc/init.d/tailscale (Allows tailscale to start on boot and all that good stuff we need)
+10. `chmod +x /etc/init.d/tailscale`
+11. `/etc/init.d/tailscale start`
+12. `/etc/init.d/tailscale enable`
+13. `/etc/init.d/tailscale enable`
+14. `ls /etc/rc.d/S*tailscale*` -> you should see something like `/etc/rc.d/S99tailscale`
