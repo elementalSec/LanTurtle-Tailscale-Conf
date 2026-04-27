@@ -25,5 +25,4 @@ Kind of a port from here: https://github.com/adyanth/openwrt-tailscale-enabler j
 10. `chmod +x /etc/init.d/tailscale`
 11. `/etc/init.d/tailscale start`
 12. `/etc/init.d/tailscale enable`
-13. `/etc/init.d/tailscale enable`
 14. `ls /etc/rc.d/S*tailscale*` -> you should see something like `/etc/rc.d/S99tailscale`
